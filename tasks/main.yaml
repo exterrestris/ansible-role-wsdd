@@ -1,0 +1,5 @@
+---
+- name: create temp directory
+  file:
+    dest: "{{ wsdd_download_dir }}"
+    state: directory
