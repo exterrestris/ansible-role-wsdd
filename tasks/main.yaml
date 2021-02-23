@@ -44,3 +44,17 @@
     dest: /etc/systemd/system/wsdd.service
     remote_src: yes
   become: true
+
+- name: allow firewall udp
+  community.general.ufw:
+    rule: allow
+    port: '3702'
+    proto: udp
+  become: true
+
+- name: allow firewall tcp
+  community.general.ufw:
+    rule: allow
+    port: '5357'
+    proto: tcp
+  become: true
