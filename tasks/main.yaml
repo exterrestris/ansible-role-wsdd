@@ -3,3 +3,17 @@
   file:
     dest: "{{ wsdd_download_dir }}"
     state: directory
+
+- block:
+  - name: set request version
+    set_fact:
+      wsdd_version: HEAD
+  when: wsdd_version == "latest"
+
+- name: clone repo
+  git:
+    repo: "{{ wsdd_github_url }}"
+    dest: "{{ wsdd_download_dir }}"
+    version: "{{ wsdd_version }}"
+    update: yes
+    force: yes
