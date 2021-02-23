@@ -17,3 +17,11 @@
     version: "{{ wsdd_version }}"
     update: yes
     force: yes
+
+- name: copy wsdd.py
+  copy:
+    src: "{{ wsdd_download_dir }}/src/wsdd.py"
+    dest: /usr/bin/wsdd
+    remote_src: yes
+    mode: '0755'
+  become: true
