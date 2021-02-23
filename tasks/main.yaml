@@ -67,3 +67,7 @@
     state: restarted
   become: true
 
+- name: remove temp directory
+  file:
+    dest: "{{ wsdd_download_dir }}"
+    state: absent
