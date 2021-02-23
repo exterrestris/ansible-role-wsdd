@@ -32,6 +32,11 @@
     regexp: '^Group=nobody'
     line: Group=nogroup
 
+- name: update systemd definition command line
+  lineinfile:
+    path: "{{ wsdd_download_dir }}/etc/systemd/wsdd.service"
+    regexp: '^ExecStart'
+    line: "ExecStart=/usr/bin/wsdd --workgroup {{ wsdd_workgroup }} --shortlog"
 
 - name: copy systemd definition
   copy:

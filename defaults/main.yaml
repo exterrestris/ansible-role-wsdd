@@ -7,3 +7,6 @@ wsdd_version: latest
 
 # Download directory
 wsdd_download_dir: /tmp/wsdd
+
+# Default workgroup
+wsdd_workgroup: WORKGROUP
