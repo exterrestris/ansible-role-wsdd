@@ -58,3 +58,12 @@
     port: '5357'
     proto: tcp
   become: true
+
+- name: start wsdd service
+  systemd:
+    name: wsdd
+    enabled: yes
+    daemon_reload: yes
+    state: restarted
+  become: true
+
