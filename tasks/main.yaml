@@ -25,3 +25,17 @@
     remote_src: yes
     mode: '0755'
   become: true
+
+- name: update systemd definition group
+  lineinfile:
+    path: "{{ wsdd_download_dir }}/etc/systemd/wsdd.service"
+    regexp: '^Group=nobody'
+    line: Group=nogroup
+
+
+- name: copy systemd definition
+  copy:
+    src: "{{ wsdd_download_dir }}/etc/systemd/wsdd.service"
+    dest: /etc/systemd/system/wsdd.service
+    remote_src: yes
+  become: true
