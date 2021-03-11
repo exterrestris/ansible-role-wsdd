@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: wsdd
   author: Sean Ellingham
   description: Installs and configures WSDD (christgau/wsdd)
   issue_tracker_url: https://github.com/exterrestris/ansible-role-wsdd/issues
