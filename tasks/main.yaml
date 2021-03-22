@@ -45,18 +45,16 @@
     remote_src: yes
   become: true
 
-- name: allow firewall udp
-  community.general.ufw:
-    rule: allow
-    port: '3702'
-    proto: udp
+- name: create ufw definition
+  template:
+    src: ufw.j2
+    dest: /etc/ufw/applications.d/wsdd
   become: true
 
-- name: allow firewall tcp
+- name: allow firewall
   community.general.ufw:
     rule: allow
-    port: '5357'
-    proto: tcp
+    name: wsdd
   become: true
 
 - name: start wsdd service
