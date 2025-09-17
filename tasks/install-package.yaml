@@ -1,0 +1,20 @@
+---
+- name: install wsdd with package manager
+  become: true
+  package:
+    name: wsdd
+    state: present
+    update_cache: true
+
+- name: create ufw definitions
+  block:
+    - name: create wsd host ufw definition
+      template:
+        src: ufw-wsd-host.j2
+        dest: /etc/ufw/applications.d/wsd-host
+      become: true
+    - name: create wsd client ufw definition
+      template:
+        src: ufw-wsd-client.j2
+        dest: /etc/ufw/applications.d/wsd-client
+      become: true
