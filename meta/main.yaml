@@ -7,9 +7,9 @@ galaxy_info:
   license: MIT
   min_ansible_version: 2.10
   platforms:
-  - name: Ubuntu
-    versions:
-    - focal
-  categories:
-  - system
+    - name: Ubuntu
+      versions:
+      - focal
+  galaxy_tags:
+    - system
 dependencies: []
